@@ -37,26 +37,7 @@ async function loadPage(page) {
     window.currentPage = page;
 
     applyTranslations();
-
-    document.getElementById("dynamic-page-script")?.remove();
-
-    const scriptUrl = `../src/js/pages/${page}.js`;
-    const scriptCheck = await fetch(scriptUrl, { method: "HEAD" });
-
-    if (scriptCheck.ok) {
-      const script = document.createElement("script");
-      script.id = "dynamic-page-script";
-      script.type = "module";
-      script.src = `${scriptUrl}?v=${Date.now()}`;
-
-      script.onload = () => {
-        document.dispatchEvent(new Event("page-loaded"));
-      };
-      document.body.appendChild(script);
-    } else {
-      console.log(`No JS for page: ${page}.`);
-      document.dispatchEvent(new Event("page-loaded"));
-    }
+    document.dispatchEvent(new Event("page-loaded"));
   } catch (err) {
     console.error("LoadPage Error:", err);
     container.innerHTML = `<p>Error loading content.</p>`;
