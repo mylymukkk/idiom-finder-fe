@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdiomFinder</title>
+    <meta name="description"
+        content="IdiomFinder — інструмент для лексичного та семантичного пошуку ідіом, їх синонімів та міжмовних відповідників українською й англійською мовами."
+        data-i18n="meta_description">
+    <link href="./css/output.css" rel="stylesheet">
+</head>
+
+<body class="py-4">
+
+    <!-- HEADER -->
+    <header class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
+        <div class="relative max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="./index.html" class="flex items-center rtl:space-x-reverse">
+                <img src="./assets/icons/logo.svg" class="h-15 w-15" alt="Idiom Finder Logo" />
+                <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">IdiomFinder</span>
+            </a>
+
+            <div class="flex flex-row md:order-2 rtl:space-x-reverse">
+                <button id="lang-btn" type="button" aria-label="Change language"
+                    class="flex items-center bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary leading-5 rounded-base px-3 py-2 focus:outline-none cursor-pointer">
+                    <svg id="lang-flag" class="h-6 w-6">
+                        <use href="./assets/icons/icons.svg#usa-flag"></use>
+                    </svg>
+                </button>
+                <!-- Dropdown -->
+                <div class="absolute right-3 top-19 z-50 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44 "
+                    id="language-dropdown-menu">
+                    <ul class="p-2 text-sm text-body font-medium" role="none">
+                        <li>
+                            <a href="#" data-lang="en"
+                                class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded"
+                                role="menuitem">
+                                <div class="inline-flex items-center">
+                                    <svg class="h-4 w-4 me-1.5">
+                                        <use href="./assets/icons/icons.svg#usa-flag"></use>
+                                    </svg>
+                                    English
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-lang="uk"
+                                class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded"
+                                role="menuitem">
+                                <div class="inline-flex items-center">
+                                    <svg class="h-4 w-4 me-1.5">
+                                        <use href="./assets/icons/icons.svg#ua-flag"></use>
+                                    </svg>
+                                    Українська
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-30">
+        <div class="md:flex max-w-screen-2xl mx-auto ">
+            <!-- Menu tabs -->
+            <nav aria-label="Main functions">
+                <ul role="tablist"
+                    class="w-full md:w-72 flex-column space-y-2 text-md font-medium text-body md:me-4 mb-4 md:mb-0">
+                    <li>
+                        <a role="tab" href="#" data-tab="meaning"
+                            class="tab-link inline-flex items-center px-4 py-4 text-white 2xl:rounded-base bg-brand hover:bg-brand-strong active w-full"
+                            aria-current="page">
+                            <svg class="w-4 h-4 me-2">
+                                <use href="./assets/icons/icons.svg#search"></use>
+                            </svg>
+                            <span data-i18n="menu_meaning"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a role="tab" href="#" data-tab="semantic"
+                            class="tab-link inline-flex items-center px-4 py-4 2xl:rounded-base hover:text-heading hover:bg-neutral-secondary-soft w-full">
+                            <svg class="w-4 h-4 me-2">
+                                <use href="./assets/icons/icons.svg#bulb"></use>
+                            </svg>
+                            <span data-i18n="menu_semantic"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a role="tab" href="#" data-tab="synonyms"
+                            class="tab-link inline-flex items-center px-4 py-4 2xl:rounded-base hover:text-heading hover:bg-neutral-secondary-soft w-full">
+                            <svg class="w-4 h-4 me-2">
+                                <use href="./assets/icons/icons.svg#file"></use>
+                            </svg>
+                            <span data-i18n="menu_synonyms"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a role="tab" href="#" data-tab="equivalents"
+                            class="tab-link inline-flex items-center px-4 py-4 2xl:rounded-base hover:text-heading hover:bg-neutral-secondary-soft w-full">
+                            <svg class="w-4 h-4 me-2">
+                                <use href="./assets/icons/icons.svg#equivalents"></use>
+                            </svg>
+                            <span data-i18n="menu_equivalents"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a role="tab" href="#" data-tab="view-all"
+                            class="tab-link inline-flex items-center px-4 py-4 2xl:rounded-base hover:text-heading hover:bg-neutral-secondary-soft w-full">
+                            <svg class="w-4 h-4 me-2">
+                                <use href="./assets/icons/icons.svg#list"></use>
+                            </svg>
+                            <span data-i18n="menu_view"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menu info -->
+            <div class="tab-content p-6 bg-neutral-secondary text-medium text-body rounded-s-base w-full"
+                data-tab-content>
+                <h3 class="text-lg font-semibold text-heading mb-4" data-i18n="tab_meaning_title"></h3>
+                <p data-i18n="tab_meaning_text"></p>
+                <div class="mt-6 border-t border-default pt-4 text-xs text-body/70 leading-5">
+                    <!-- Sources toggle -->
+                    <button id="sources-toggle" class="group font-semibold text-heading/80 flex items-center justify-between w-full text-left transition
+                               md:cursor-default md:hover:text-heading md:pointer-events-none sm:cursor-pointer">
+                        <span class="flex items-center group-hover:text-heading" data-i18n="datasources_title"></span>
+                        <svg id="sources-arrow" class="w-4 h-4 transition-transform group-hover:scale-110 md:hidden"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <!-- Sources content-->
+                    <div id="sources-content" class="hidden md:block mt-3 space-y-3">
+                        <p>
+                            <span class="font-bold" data-i18n="datasources_ukr"></span>
+                            <a href="https://archive.org/details/slov557/page/n1/mode/2up"
+                                class="underline hover:text-heading" target="_blank"><span class="italic"
+                                    data-i18n="datasources_ukr_source"></span></a><span
+                                data-i18n="datasources_ukr_source_details"></span><b
+                                data-i18n="datasources_ukr_source_quantity"></b>.
+                        </p>
+                        <p>
+                            <span class="font-bold" data-i18n="datasources_eng"></span>
+                            <span data-i18n="datasources_eng_source_details"></span>
+                            <a href="https://www.theidioms.com/" class="underline hover:text-heading" target="_blank"
+                                data-i18n="datasources_eng_source"></a>
+                            — <span class="font-bold" data-i18n="datasources_eng_source_quantity"></span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SEARCH FORM -->
+        <div id="search-form" class="max-w-screen-2xl mx-auto flex flex-col px-4 mt-10 lg:mt-15">
+            <form class="w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto">
+                <!-- input -->
+                <div class="flex shadow-xs rounded-base w-full">
+                    <input type="search" class="flex-1 py-3 px-4 bg-neutral-secondary-medium 
+                           border border-default-medium text-heading 
+                           text-base md:text-lg 
+                           focus:ring-brand focus:border-brand 
+                           rounded-s-base placeholder:text-body placeholder:text-sm" required
+                        data-i18n="search_placeholder">
+                    <button type="button" class="inline-flex items-center justify-center 
+                           bg-brand text-white hover:bg-brand-strong
+                           px-5 md:px-6 rounded-e-base 
+                           focus:ring-4 focus:ring-brand-medium cursor-pointer">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-width="2"
+                                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- database select -->
+                <div class="flex ms-2 mt-3 items-center">
+                    <h3 class="text-xs font-medium text-heading text-body" data-i18n="dataset_label"></h3>
+                    <ul class="ms-2 grid grid-cols-2  gap-2 select-none">
+                        <li>
+                            <input type="checkbox" id="dataset-ukr" class="hidden peer">
+                            <label for="dataset-ukr"
+                                class="inline-flex items-center justify-center text-center
+                                       w-full py-2 px-2 text-sm text-body bg-neutral-primary-soft border border-default rounded-base text-xs cursor-pointer peer-checked:bg-brand-softer peer-checked:text-fg-brand-strong"
+                                data-i18n="dataset_ukr">
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="dataset-eng" class="hidden peer">
+                            <label for="dataset-eng"
+                                class="inline-flex items-center justify-center text-center
+                                       w-full py-2 px-2 text-sm text-body 
+                                       bg-neutral-primary-soft border border-default rounded-base text-xs cursor-pointer peer-checked:bg-brand-softer peer-checked:text-fg-brand-strong"
+                                data-i18n="dataset_eng">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <div id="page-content" class="max-w-screen-2xl mx-auto flex flex-col px-4 mt-10 lg:mt-15"></div>
+    </main>
+
+    <script defer src="./vendor/flowbite.min.js"></script>
+    <script type="module" src="../src/js/router.js"></script>
+    <script type="module" src="../src/js/toggles.js"></script>
+    <script type="module" src="../src/js/language.js"></script>
+</body>
+
+</html>
+
+
+<!-- SEARCH RESULTS -->
+<!-- <div class="max-w-screen-2xl mx-auto px-4 flex flex-col">
+    <div class="mt-6 flex flex-col gap-4 w-full  mx-auto">
+        <p class="text-xs text-body ps-4"><span data-i18n="found_label"></span>10</p>
+        <div class="idiom-card relative bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs">
+            <span
+                class="absolute bg-success-soft text-fg-success-strong text-sm font-medium px-2 py-1 rounded right-6 top-6">87%</span>
+            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">НІ БЕ НІ МЕ (кукуріку)</h5>
+            <ul class="flex flex-col gap-3">
+                <li>
+                    <p class="mb-3 text-body">1. ніц не вміти</p>
+                </li>
+                <li>
+                    <p class="mb-3 text-body">2. бути крінжом</p>
+                </li>
+            </ul>
+            <p class="cursor-pointer font-medium  text-sm text-fg-brand hover:underline mt-3" data-example
+                data-i18n="example_label">
+            </p>
+            <blockquote class="example-block hidden p-4 mt-3 border-s-4 border-default bg-neutral-secondary-soft">
+                <p class="text-sm italic leading-relaxed text-heading">"Flowbite is just awesome. It
+                    contains tons of
+                    predesigned components and pages starting from login screen to complex dashboard. Perfect choice
+                    for your next
+                    SaaS application." <span class="text-body">(З газети)</span></p>
+            </blockquote>
+        </div>
+        <div class="idiom-card relative bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs">
+            <span
+                class="absolute bg-warning-soft text-fg-warning text-sm font-medium px-2 py-1 rounded right-6 top-6">68%</span>
+            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">НІ БЕ НІ МЕ (кукуріку)</h5>
+            <p class="mb-3 text-body">1. ніц не вміти</p>
+            <p class="mb-3 text-body">2. бути крінжом</p>
+            <p class="cursor-pointer font-medium  text-sm text-fg-brand hover:underline" data-example
+                data-i18n="example_label">
+            </p>
+            <blockquote class="example-block hidden p-4 mt-3 border-s-4 border-default bg-neutral-secondary-soft">
+                <p class="text-sm italic leading-relaxed text-heading">"Flowbite is just awesome. It
+                    contains tons of
+                    predesigned components and pages starting from login screen to complex dashboard. Perfect choice
+                    for your next
+                    SaaS application." <span class="text-body">(З газети)</span></p>
+            </blockquote>
+        </div>
+        <div class="idiom-card relative bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs">
+            <span
+                class="absolute bg-neutral-secondary-medium text-heading text-sm font-medium px-2 py-1 rounded right-6 top-6">50%</span>
+            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">НІ БЕ НІ МЕ (кукуріку)</h5>
+            <p class="mb-3 text-body">1. ніц не вміти</p>
+            <p class="mb-3 text-body">2. бути крінжом</p>
+            <p class="cursor-pointer font-medium  text-sm text-fg-brand hover:underline" data-example
+                data-i18n="example_label">
+            </p>
+            <blockquote class="example-block hidden p-4 mt-3 border-s-4 border-default bg-neutral-secondary-soft">
+                <p class="text-sm italic leading-relaxed text-heading">"Flowbite is just awesome. It
+                    contains tons of
+                    predesigned components and pages starting from login screen to complex dashboard. Perfect choice
+                    for your next
+                    SaaS application." <span class="text-body">(З газети)</span></p>
+            </blockquote>
+        </div>
+        <div class="idiom-card relative bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs">
+            <span
+                class="absolute bg-danger-soft text-fg-danger-strong text-sm font-medium px-2 py-1 rounded right-6 top-6">30%</span>
+            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">НІ БЕ НІ МЕ (кукуріку)</h5>
+            <p class="mb-3 text-body">1. ніц не вміти</p>
+            <p class="mb-3 text-body">2. бути крінжом</p>
+            <p class="cursor-pointer font-medium  text-sm text-fg-brand hover:underline" data-example
+                data-i18n="example_label">
+            </p>
+            <blockquote class="example-block hidden p-4 mt-3 border-s-4 border-default bg-neutral-secondary-soft">
+                <p class="text-sm italic leading-relaxed text-heading">"Flowbite is just awesome. It
+                    contains tons of
+                    predesigned components and pages starting from login screen to complex dashboard. Perfect choice
+                    for your next
+                    SaaS application." <span class="text-body">(З газети)</span></p>
+            </blockquote>
+        </div>
+    </div>
+</div> -->

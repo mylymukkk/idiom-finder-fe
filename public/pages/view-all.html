@@ -1,0 +1,21 @@
+<div class="flex items-center gap-4 mb-4 ps-4">
+    <h3 class="text-md sm:text-sm text-heading" data-i18n="dataset_label"></h3>
+    <ul class="grid grid-cols-2 gap-2 select-none items-center">
+        <li>
+            <input type="checkbox" id="view-dataset-ukr" class="hidden peer">
+            <label for="view-dataset-ukr"
+                class="inline-flex items-center justify-center w-full py-2 px-4 text-sm bg-neutral-primary-soft border border-default rounded-base cursor-pointer peer-checked:bg-brand-softer peer-checked:text-fg-brand-strong text-center"
+                data-i18n="dataset_ukr">
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" id="view-dataset-eng" class="hidden peer">
+            <label for="view-dataset-eng"
+                class="inline-flex items-center justify-center w-full py-2 px-4 text-sm bg-neutral-primary-soft border border-default rounded-base cursor-pointer peer-checked:bg-brand-softer peer-checked:text-fg-brand-strong text-center"
+                data-i18n="dataset_eng">
+            </label>
+        </li>
+    </ul>
+</div>
+<p id="view-count" class="text-xs text-body ps-4 mt-4"><span data-i18n="found_label"></span>0</p>
+<div id="idioms-container" class="mt-4 flex flex-col gap-4 w-full mx-auto"></div>

@@ -1,0 +1,93 @@
+{
+  "en": {
+    "meta_description": "IdiomFinder – a tool for lexical and semantic search of idioms, their synonyms, and cross-lingual equivalents in Ukrainian and English.",
+
+    "menu_meaning": "Search meaning",
+    "menu_semantic": "Search by meaning",
+    "menu_synonyms": "Find synonyms",
+    "menu_equivalents": "Find equivalents",
+    "menu_view": "View idioms",
+
+    "tab_meaning_title": "Search Meaning",
+    "tab_meaning_text": "Drop an idiom in — get a clear explanation back.",
+
+    "tab_semantic_title": "Search by Meaning",
+    "tab_semantic_text": "Don’t remember the wording? Just say what you mean.",
+
+    "tab_synonyms_title": "Find Synonyms",
+    "tab_synonyms_text": "Need alternatives? Here are the closest expressions.",
+
+    "tab_equivalents_title": "Find Equivalents",
+    "tab_equivalents_text": "See how the same idea sounds in other languages.",
+
+    "tab_view-all_title": "View Idioms",
+    "tab_view-all_text": "Just curious what's inside? The whole collection is here.",
+
+    "datasources_title": "Data sources",
+    "datasources_ukr": "Ukrainian idioms:",
+    "datasources_ukr_source": "«Словник фразеологізмів української мови»",
+    "datasources_ukr_source_details": ", ред. В. О. Винник; уклад.: В. М. Білоноженко, І. С. Гнатюк, В. В. Дятчук, Н. М. Неровня, Т. О. Федоренко. Київ: Наук. думка, 2003. – ",
+    "datasources_ukr_source_quantity": "965/7922 idioms",
+    "datasources_eng": "English idioms:",
+    "datasources_eng_source": "theidioms.com",
+    "datasources_eng_source_details": "Dataset compiled from",
+    "datasources_eng_source_quantity": "2226 idioms",
+
+    "search_placeholder": "Search for an idiom...",
+    "dataset_label": "Choose a dataset:",
+    "dataset_ukr": "UKR",
+    "dataset_eng": "ENG",
+
+    "example_label": "Example",
+    "found_label": "Found: ",
+
+    "with_words_label": "with words"
+  },
+
+  "uk": {
+    "meta_description": "IdiomFinder — інструмент для лексичного та семантичного пошуку ідіом, їх синонімів та міжмовних відповідників українською й англійською мовами.",
+
+    "menu_meaning": "Пошук значення",
+    "menu_semantic": "Пошук за значенням",
+    "menu_synonyms": "Пошук синонімів",
+    "menu_equivalents": "Пошук відповідників",
+    "menu_view": "Перегляд ідіом",
+
+    "tab_meaning_title": "Пошук значення",
+    "tab_meaning_text": "Кинь фразу — побачиш, що вона насправді означає.",
+
+    "tab_semantic_title": "Пошук за значенням",
+    "tab_semantic_text": "Не пам’ятаєш фразу? Просто опиши, що маєш на увазі.",
+
+    "tab_synonyms_title": "Пошук синонімів",
+    "tab_synonyms_text": "Шукаєш альтернативи? Тут зібрані найближчі варіанти.",
+
+    "tab_equivalents_title": "Пошук відповідників",
+    "tab_equivalents_text": "Порівняй, як одна ідея звучить іншими мовами.",
+
+    "tab_view-all_title": "Перегляд ідіом",
+    "tab_view-all_text": "Хочеш просто подивитися, що є? Весь список тут.",
+
+    "datasources_title": "Джерела даних",
+    "datasources_ukr": "Українські ідіоми:",
+    "datasources_ukr_source": "«Словник фразеологізмів української мови»",
+    "datasources_ukr_source_details": ", ред. В. О. Винник; уклад.: В. М. Білоноженко, І. С. Гнатюк, В. В. Дятчук, Н. М. Неровня, Т. О. Федоренко. Київ: Наук. думка, 2003. – ",
+    "datasources_ukr_source_quantity": "965/7922 фразеологізмів",
+    "datasources_eng": "Англійські ідіоми:",
+    "datasources_eng_source": "theidioms.com",
+    "datasources_eng_source_details": "Зібрано з ресурсу ",
+    "datasources_eng_source_quantity": "2226 фразеологізмів",
+
+    "search_placeholder": "Пошук ідіоми...",
+    "dataset_label": "Оберіть базу даних:",
+    "dataset_ukr": "УКР",
+    "dataset_eng": "АНГ",
+    "dataset_ukrainian": "УКРАЇНСЬКА",
+    "dataset_english": "АНГЛІЙСЬКА",
+
+    "example_label": "Приклад",
+    "found_label": "Знайдено: ",
+
+    "with_words_label": "зі сл."
+  }
+}
